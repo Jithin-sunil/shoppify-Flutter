@@ -14,11 +14,11 @@ class Shoppify extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
+      theme: ThemeData( 
         primaryColor: Color.fromARGB(255, 223, 22, 22)
       ),
       home: Splashscreen()
     );
   
   }
-}
+}  

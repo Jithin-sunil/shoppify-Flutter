@@ -60,7 +60,7 @@ class Loginpage extends StatelessWidget {
                     
                   ),
                   ElevatedButton(onPressed: () {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Signupform()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Signupform()));
                   }, child: Text("SignUp"))
                 ],
               ),
