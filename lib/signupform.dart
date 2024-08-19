@@ -1,9 +1,17 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:shoppify/loginpage.dart';
 
-class Signupform extends StatelessWidget {
+
+class Signupform extends StatefulWidget {
   const Signupform({super.key});
 
+  @override
+  State<Signupform> createState() => _SignupformState();
+}
+
+class _SignupformState extends State<Signupform> {
+ String? seldist;
+ List<String> district=['Ernakulam','Kollam','Kottayam'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +64,7 @@ class Signupform extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: TextField(
               decoration: InputDecoration(
-                icon: Icon(Icons.email),
+                icon: Icon(Icons.lock),
                 border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                 labelText: 'Password',
                 hintText: 'Enter your Password',
@@ -66,7 +74,45 @@ class Signupform extends StatelessWidget {
             ),
             
           ),
-          
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: DropdownButtonFormField<String>(items: district.map((String dis)
+              {
+                return DropdownMenuItem<String>(
+                  value: dis,
+                  child: Text(dis),
+                );
+              }
+              ).toList(), onChanged: (String? newVal) {
+                setState(() {
+                  seldist = newVal;
+                });
+              },
+              decoration: InputDecoration(
+                icon: Icon(Icons.location_on_outlined),
+                hintText: "Select Place",
+                labelText: "Place",
+              ),),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+              onPressed: () {
+                
+              },
+              child: Text('Submit'),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+              onPressed: () {
+                
+              },
+              child: Text('Reset'),
+            ),
+          )
+           
         ],
       ),
     );

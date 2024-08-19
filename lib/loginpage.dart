@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shoppify/signupform.dart';
-import 'package:shoppify/user/dashboard.dart';
+import 'package:shoppify/seller/dashboard.dart';
 
 class Loginpage extends StatelessWidget {
   const Loginpage({super.key});
@@ -12,7 +12,6 @@ class Loginpage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.red,
       ),
-    
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Center(
@@ -32,6 +31,10 @@ class Loginpage extends StatelessWidget {
                   TextFormField(
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white)),
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white)),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)),
                       icon: Icon(Icons.email),
@@ -53,15 +56,19 @@ class Loginpage extends StatelessWidget {
                   SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.pushReplacement(context,
+                      Navigator.push(context,
                           MaterialPageRoute(builder: (context) => Dashboard()));
                     },
                     child: Text('Login'),
-                    
                   ),
-                  ElevatedButton(onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => Signupform()));
-                  }, child: Text("SignUp"))
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Signupform()));
+                      },
+                      child: Text("SignUp"))
                 ],
               ),
             ),
